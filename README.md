@@ -1,4 +1,4 @@
-# Kad Kahwin Digital – Anis & Ghazie
+# Projek Kad Kahwin Digital (Anis & Ghazie)
 
 Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie**.  
 Kad ini dibina menggunakan **HTML, CSS, dan JavaScript**, serta boleh dihoskan terus menggunakan **GitHub Pages** supaya tetamu boleh akses melalui link sahaja.
@@ -13,3 +13,5 @@ Kad ini dibina menggunakan **HTML, CSS, dan JavaScript**, serta boleh dihoskan t
 - Rekaan elegan untuk dikongsi melalui link.
 
 ---
+
+## Kegunaan terhad kepada penggunaan peribadi sahaja
