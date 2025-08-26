@@ -37,4 +37,4 @@ Kad kahwin digital ini dibangunkan menggunakan kod tiga teras:
 ---
 
 ### Disclaimer
-Projek ini dibangunkan untuk kegunaan peribadi Emenes sendiri dan tidak dibuka untuk sumbangan umum mahupun untuk dijual. Namun anda boleh menggunakannya sebagai rujukan atau inspirasi untuk projek kad kahwin digital anda sendiri
+Projek ini dibangunkan untuk kegunaan peribadi Emenes sendiri dan tidak dibuka untuk sumbangan umum mahupun dijual. Namun anda boleh menggunakannya sebagai rujukan atau inspirasi untuk projek kad kahwin digital anda sendiri
