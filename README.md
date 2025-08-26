@@ -1,6 +1,6 @@
-# Projek Kad Kahwin Digital (Anis & Ghazie)
+# Projek e-KadKahwin (Anis & Ghazie)
 
-Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie**.  
+Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie** dibawah satu projek **e-kadkhawin by Emenes**
 Kad ini dibina menggunakan **HTML, CSS, dan JavaScript**, serta boleh dihoskan terus menggunakan **GitHub Pages** supaya tetamu boleh akses melalui link sahaja.
 Tujuan utama projek ini adalah untuk menyediakan penyelesaian kad jemputan digital yang ringkas dan berkesan. Seluruh kod dan aset disatukan dalam satu fail HTML, membolehkan hosting yang mudah dan akses yang pantas.
 
