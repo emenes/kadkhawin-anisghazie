@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kad Kahwin Digital - Ghazie & Anis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Glitter effect */
+    .glitter-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .glitter-bg.show {
+      opacity: 1;
+    }
+
+    .glitter-bg span {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: glitter 3s infinite;
+      box-shadow: 0 0 5px #fff, 0 0 10px #e0e0e0;
+    }
+
+    @keyframes glitter {
+      0%, 100% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Cover */
+    .cover {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #d3cce3, #e9e4f0);
+      transition: transform 1s ease-in-out;
+      z-index: 10;
+      
+      /* Tambahan kod BG yang sama */
+      background-image: url('https://emenes.github.io/kadkhawin-anisghazie/img/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .cover-content { text-align: center; color: #555; }
+    .cover h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      margin: 0;
+      color: #6a4e77;
+    }
+    .cover p { margin: 10px 0; font-weight: 500; color: #6a4e77; }
+    .cover button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      background: #6a4e77;
+      color: #fff;
+      cursor: pointer;
+      transition: .3s;
+    }
+    .cover button:hover { opacity: .85; }
+
+    /* Card */
+    .card {
+      max-width: 680px;
+      width: 90%;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+      margin: 40px auto;
+      
+      /* New elegant background design */
+      background-image: url('https://emenes.github.io/kadkhawin-anisghazie/img/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .card.show { opacity: 1; transform: scale(1); }
+
+    header {
+      background: linear-gradient(135deg, #e9e4f0, #d3cce3);
+      color: #444;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      margin: 0;
+      color: #6a4e77;
+    }
+    header p { margin: 6px 0; }
+    .countdown { margin-top: 15px; font-size: 18px; font-weight: 600; color: #6a4e77; }
+
+    .details { padding: 30px 25px; text-align: center; }
+    .details h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #6a4e77;
+    }
+    .details p { margin: 8px 0; font-size: 15px; }
+
+    .btn {
+      display: inline-block;
+      background: #6a4e77;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+    .btn:hover { background: #54395c; }
+
+    .map-img {
+      margin-top: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      max-width: 100%;
+    }
+
+    .gallery {
+      padding: 25px;
+      background: #f7f5f9;
+      text-align: center;
+    }
+    .gallery h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #6a4e77;
+      margin-bottom: 15px;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .gallery-container img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform .3s;
+    }
+    .gallery-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .contacts { 
+      background: #f7f5f9; 
+      padding: 25px; 
+      text-align: center; 
+    }
+    .contacts h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #6a4e77;
+      margin-bottom: 15px;
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .contact-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 1 1 200px; /* Fleksibel, tetapi tidak kurang dari 200px */
+      text-align: center;
+    }
+    
+    .contact-box strong { 
+        display: block; 
+        margin-bottom: 4px; 
+        color: #444; 
+    }
+    
+    .contact-box span { 
+        display: block; 
+        margin-bottom: 8px; 
+    }
+    
+    .quickdial {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: #6a4e77;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: .2s;
+    }
+    .quickdial:hover {
+        background: #54395c;
+        font-size: 20px;
+        color: #25D366;
+    }
+
+    .rsvp-popup-container {
+        display: none; 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0,0,0,0.7); 
+        z-index: 20; 
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .rsvp-popup-content {
+        background: #fff; 
+        padding: 20px; 
+        border-radius: 10px; 
+        max-width: 95%; 
+        max-height: 95%; 
+        overflow: auto; 
+        position: relative;
+    }
+
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="glitter-bg" id="glitter-container"></div>
+  <div class="cover" id="cover">
+    <div class="cover-content">
+      <p style="font-family: 'Nunito', cursive; font-size: 20px; line-height: 1.0;">WALIMATULURUS</p><br><br>
+      <h1>Anis  &  Ghazie</h1>
+      <p>27 SEPTEMBER 2025</p>
+      <button onclick="openCard()">Buka Kad</button>
+    </div>
+  </div>
+
+  <div class="card" id="card">
+    <header>
+      <h2>❤ Anis  &  Ghazie ❤</h2><br>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">
+          Dengan Penuh Kesyukuran ke Hadrat Ilahi, Kami
+      </p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 20px; line-height: 1.2;"><b>Zulkarnain Bin Atan</b></p>
+      <p style="font-family: 'Imperial Script', cursive; font-size: 30px; line-height: 1.2; color: #6a4e77;"><b>&</b></p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 20px; line-height: 1.0;"><b>Norihan Binti Mansor</b></p><br>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">
+          Menjemput
+
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">Dato’/Datin, Tuan/Puan, Encik/Cik</p>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">ke Walimatulurus Puteri Kami</p><br>
+      <p><b>NUR HANIS ALIAA BINTI ZULKARNAIN</b></p>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">bersama pasangannya</p>
+      <p><b>MUHAMAD GHAZIE HADIFF BIN KAMARAZAMAN</b></p><br>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">pada</p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 27px; line-height: 1.2; color: #6a4e77;"><b>27 SEPTEMBER 2025</b></p>
+      <div class="countdown" id="countdown"></div>
+    </header>
+
+    <div class="details">
+      <h3>Atur Cara</h3>
+      <p><strong>Jamuan:</strong> 11.00 AM – 4.00 PM</p>
+      <p><strong>Ketibaan Pengantin:</strong> 12.00 PM</p>
+
+      <h3>Lokasi</h3>
+      <p>Dewan Serbaguna Taman Aman, Senai</p>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">Semoga dengan kehadiran anda dapat memeriahkan lagi majlis kami</p><br>
+      <a class="btn" href="https://maps.app.goo.gl/AuFCqkPtsuduKucF9" target="_blank">Google Map</a>
+      <div class="map-img">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/map.png" alt="Peta Lokasi">
+      </div>
+    </div>
+
+    <div class="gallery">
+      <h3>Galeri Pengantin</h3>
+      <div class="gallery-container" id="gallery">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/anis2.jpg" alt="Gallery 02">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/anis1.jpg" alt="Gallery 01">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/anis3.jpg" alt="Gallery 03">
+      </div>
+    </div>
+
+    <div class="contacts">
+        <h3>Contact</h3>
+        <div class="contact-container">
+            <div class="contact-box">
+                <strong>Ibu/Ayah</strong>
+                <span>+60 13-715 3954</span>
+                <a class="quickdial" href="https://wa.me/60137153954"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-box">
+                <strong>Along (Naufal)</strong>
+                <span>+60 17-735 6977</span>
+                <a class="quickdial" href="https://wa.me/60177356977"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-box">
+                <strong>Angah (Idham)</strong>
+                <span>+60 19-277 1264</span>
+                <a class="quickdial" href="https://wa.me/60192771264"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-box">
+                <strong>Adik (Iman)</strong>
+                <span>+60 13-734 2475</span>
+                <a class="quickdial" href="https://wa.me/60137342475"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="rsvp" style="text-align: center; padding: 25px;">
+        <h3>RSVP</h3>
+        <a href="#" class="btn" onclick="openRSVP()">Hadir Ke Majlis</a>
+    </div>
+
+    <div id="rsvp-popup" class="rsvp-popup-container">
+        <div class="rsvp-popup-content">
+            <button onclick="closeRSVP()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #555; cursor: pointer;">×</button>
+            <iframe src="https://forms.gle/vjfgDpnDJFVRKA1BA" width="550" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <footer>
+      <p style="font-family: 'Quicksand', cursive; font-size: 15px; line-height: 1.0;"><b>"Cinta yang bersemi, kini bersemi indah dalam ikatan pernikahan. Semoga Allah menghimpun yang terserak dari kalian berdua, memberkati kalian berdua; dan kiranya Allah meningkatkan kualiti keturunannya, menjadikan pembuka rahmat, sumber ilmu dan hikmah serta pemberi rasa aman bagi umat"</b></p><br>
+      <b>"Ya Allah, satukanlah hati kedua mempelai ini dalam kebaikan."</b><br>
+      <b>Terima kasih atas doa & kehadiran anda ♥</b>
+    </footer>
+    <footer style="padding: 10px; font-size: 12px; color: #aaa; background-color: #f7f5f9; text-align: center;">
+      Kad Khawin Digital by Naufal Shafiq Zulkarnain
+    </footer>
+  </div>
+
+  <audio id="bgMusic" src="https://emenes.github.io/kadkhawin-anisghazie/aud/kisahcintakita.mp3" loop></audio>
+
+  <script>
+    function openCard() {
+      document.getElementById('cover').style.transform = 'translateY(-100%)';
+      setTimeout(() => {
+        document.getElementById('cover').style.display = 'none';
+        document.getElementById('card').classList.add('show');
+        document.getElementById('glitter-container').classList.add('show');
+        window.scrollTo(0, 0);
+        document.getElementById('bgMusic').play();
+      }, 1000);
+    }
+
+    // Function untuk generate glitter
+    function createGlitter() {
+      const glitterContainer = document.getElementById('glitter-container');
+      const numGlitter = 200; // Bilangan glitter yang akan dijana
+      for (let i = 0; i < numGlitter; i++) {
+        const glitter = document.createElement('span');
+        const size = Math.random() * 3 + 1; // Saiz glitter (1px - 4px)
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const delay = Math.random() * 3;
+        const duration = Math.random() * 3 + 2;
+
+        glitter.style.width = `${size}px`;
+        glitter.style.height = `${size}px`;
+        glitter.style.left = `${left}%`;
+        glitter.style.top = `${top}%`;
+        glitter.style.animationDelay = `${delay}s`;
+        glitter.style.animationDuration = `${duration}s`;
+        glitterContainer.appendChild(glitter);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createGlitter();
+    });
+
+    // Countdown
+    const countdownEl = document.getElementById('countdown');
+    const targetDate = new Date('September 27, 2025 00:00:00 GMT+0800').getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff <= 0) {
+        countdownEl.innerHTML = "Hari bahagia telah tiba! Selamat Pengantin Baru!";
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `COUNTING DAYS : ${d} Hari ${h} Jam ${m} Minit ${s} Saat`;
+    }, 1000);
+
+    function openRSVP() {
+        document.getElementById('rsvp-popup').style.display = 'flex';
+    }
+
+    function closeRSVP() {
+        document.getElementById('rsvp-popup').style.display = 'none';
+    }
+
+  </script>
+</body>
+</html>
