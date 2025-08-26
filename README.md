@@ -1,27 +1,27 @@
 # Projek e-KadKahwin (Anis & Ghazie)
 ![ekadkhawinbyemenes](https://emenes.github.io/kadkhawin-anisghazie/img/ekadkhawinbyemenes2.png)
 
-Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie** dibawah satu projek **e-kadkhawin by Emenes**.
+Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie** dibawah satu projek peribadi **e-kadkhawin by Emenes**.
 
-Kad ini dibina menggunakan **HTML, CSS, dan JavaScript**, serta boleh dihoskan terus menggunakan **GitHub Pages** supaya tetamu boleh akses melalui link sahaja.
+Kad digital ini dibina menggunakan **HTML, CSS, dan JavaScript**, serta boleh dihoskan terus menggunakan **GitHub Pages** supaya tetamu boleh akses melalui link sahaja.
 Tujuan utama projek ini adalah untuk menyediakan penyelesaian kad jemputan digital yang ringkas dan berkesan. Seluruh kod dan aset disatukan dalam satu fail HTML, membolehkan hosting yang mudah dan akses yang pantas.
 
 ---
 
 ## 🎉 Ciri-ciri Kad
-- Paparan responsif (sesuai untuk telefon & komputer).
-- Peta lokasi majlis.
-- Galeri gambar pengantin.
-- Lagu latar (autoplay & loop).
-- Rekaan elegan untuk dikongsi melalui link.
+- Paparan responsif
+- Peta lokasi majlis
+- Galeri gambar pengantin
+- Lagu latar (autoplay & loop)
+- Rekaan elegan untuk dikongsi melalui link
 
 ---
 
 ### Struktur Fail
 
-Projek ini menggunakan format **HTML standalone**, di mana kod CSS dan JavaScript disatukan di dalam satu fail `index.html`. Aset seperti gambar dan fail audio disimpan dalam folder yang berkaitan.
+Projek ini menggunakan format **HTML standalone**, di mana kod CSS dan JavaScript disatukan di dalam satu fail. Aset seperti gambar dan fail audio disimpan dalam folder yang berkaitan.
 
--   `index.html` - Fail utama kad kahwin digital
+-   `.html` - Fail utama kad kahwin digital
 -   `images/` - Folder untuk semua gambar galeri
 -   `audio/` - Folder untuk fail muzik latar
 
@@ -36,5 +36,5 @@ Kad kahwin digital ini dibangunkan menggunakan kod tiga teras:
 
 ---
 
-### Kegunaan
-Projek ini dibangunkan untuk kegunaan peribadi saya sendiri dan tidak dibuka untuk sumbangan umum. Namun anda boleh menggunakannya sebagai rujukan atau inspirasi untuk projek kad kahwin digital anda sendiri
+### Disclaimer
+Projek ini dibangunkan untuk kegunaan peribadi Emenes sendiri dan tidak dibuka untuk sumbangan umum mahupun untuk dijual. Namun anda boleh menggunakannya sebagai rujukan atau inspirasi untuk projek kad kahwin digital anda sendiri
