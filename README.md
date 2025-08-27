@@ -1,5 +1,5 @@
 # Projek e-KadDesign (Anis & Ghazie)
-![ekaddesignbyemenes](https://emenes.github.io/kadkhawin-anisghazie/img/logo.png) 
+![ekaddesignbyemenes](https://emenes.github.io/kadkhawin-anisghazie/img/logo.png)
 
 Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie** dibawah satu projek peribadi **e-kaddesign by Emenes**.
 
