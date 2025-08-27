@@ -1,5 +1,4 @@
 # Projek e-KadDesign (Anis & Ghazie)
-![ekaddesignbyemenes](https://emenes.github.io/kadkhawin-anisghazie/img/logo.png)
 
 Projek ini adalah **kad kahwin digital** untuk pasangan **Anis & Ghazie** dibawah satu projek peribadi **e-kaddesign by Emenes**.
 
@@ -39,3 +38,5 @@ Kad kahwin digital ini dibangunkan menggunakan kod tiga teras:
 
 ### Disclaimer
 Projek ini dibangunkan untuk kegunaan peribadi Emenes sendiri dan tidak dibuka untuk sumbangan umum mahupun dijual. Namun anda boleh menggunakannya sebagai rujukan atau inspirasi untuk projek kad kahwin digital anda sendiri
+
+![ekaddesignbyemenes](https://emenes.github.io/kadkhawin-anisghazie/img/logo.png)
