@@ -53,6 +53,36 @@
       50% { transform: scale(1); opacity: 1; }
     }
 
+    /* Snowfall effect */
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .snowflake {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: snowfall 10s linear infinite;
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(-100%) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
     /* Cover */
     .cover {
       position: fixed;
@@ -207,7 +237,7 @@
       padding: 15px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      flex: 1 1 200px; /* Fleksibel, tetapi tidak kurang dari 200px */
+      flex: 1 1 200px;
       text-align: center;
     }
     
@@ -268,6 +298,7 @@
 </head>
 <body>
   <div class="glitter-bg" id="glitter-container"></div>
+  <div class="snow" id="snow-container"></div>
   <div class="cover" id="cover">
     <div class="cover-content">
       <p style="font-family: 'Nunito', cursive; font-size: 20px; line-height: 1.0;">WALIMATULURUS</p><br><br>
@@ -279,7 +310,7 @@
 
   <div class="card" id="card">
     <header>
-      <h2>❤ Anis & Ghazie ❤</h2><br>
+      <h2>❤ Anis  &  Ghazie ❤</h2><br>
       <img src="https://emenes.github.io/kadkhawin-anisghazie/img/bismillah.png" alt="Bismillah" class="mx-auto w-48 mb-4" style="width: 200px; height: auto; margin: 10px auto;">
       <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">
           Dengan Penuh Kesyukuran ke Hadrat Ilahi, Kami
@@ -414,8 +445,33 @@
       }
     }
 
+    // Function untuk generate snow
+    function createSnowfall() {
+      const snowContainer = document.getElementById('snow-container');
+      const numSnowflakes = 50; 
+
+      for (let i = 0; i < numSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+
+        const size = Math.random() * 5 + 3;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 10 + 5;
+        const delay = Math.random() * 5;
+
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${left}%`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.animationDelay = `${delay}s`;
+
+        snowContainer.appendChild(snowflake);
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       createGlitter();
+      createSnowfall();
     });
 
     // Countdown
