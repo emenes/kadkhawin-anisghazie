@@ -12,6 +12,8 @@ Tujuan utama projek ini adalah untuk menyediakan penyelesaian kad jemputan digit
 - Paparan responsif
 - Peta lokasi majlis
 - Galeri gambar pengantin
+- Fungsi RSVP (Google Form)
+- Snowfall Effect pada kad
 - Lagu latar (autoplay & loop)
 - Rekaan elegan untuk dikongsi melalui link
 
