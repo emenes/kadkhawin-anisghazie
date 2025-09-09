@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kad Kahwin Digital - Ghazie & Anis</title>
+  <link rel="icon" href="https://emenes.github.io/kadkhawin-anisghazie/img/logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Glitter effect */
+    .glitter-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .glitter-bg.show {
+      opacity: 1;
+    }
+
+    .glitter-bg span {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation: glitter 3s infinite;
+      box-shadow: 0 0 5px #fff, 0 0 10px #e0e0e0;
+    }
+
+    @keyframes glitter {
+      0%, 100% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Snowfall effect */
+    .snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .snowflake {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: snowfall 10s linear infinite;
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(-100%) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    /* Cover */
+    .cover {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #d3cce3, #e9e4f0);
+      transition: transform 1s ease-in-out;
+      z-index: 10;
+      
+      /* Tambahan kod BG yang sama */
+      background-image: url('https://emenes.github.io/kadkhawin-anisghazie/img/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .cover-content { text-align: center; color: #555; }
+    .cover h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 56px;
+      margin: 0;
+      color: #6a4e77;
+    }
+    .cover p { margin: 10px 0; font-weight: 500; color: #6a4e77; }
+    .cover button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      background: #6a4e77;
+      color: #fff;
+      cursor: pointer;
+      transition: .3s;
+    }
+    .cover button:hover { opacity: .85; }
+
+    /* Card */
+    .card {
+      max-width: 680px;
+      width: 90%;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+      margin: 40px auto;
+      
+      /* New elegant background design */
+      background-image: url('https://emenes.github.io/kadkhawin-anisghazie/img/bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .card.show { opacity: 1; transform: scale(1); }
+
+    header {
+      background: linear-gradient(135deg, #e9e4f0, #d3cce3);
+      color: #444;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 50px;
+      margin: 0;
+      color: #6a4e77;
+    }
+    header p { margin: 6px 0; }
+    .countdown { margin-top: 15px; font-size: 18px; font-weight: 600; color: #6a4e77; }
+
+    .details { padding: 30px 25px; text-align: center; }
+    .details h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #6a4e77;
+    }
+    .details p { margin: 8px 0; font-size: 15px; }
+
+    .btn {
+      display: inline-block;
+      background: #6a4e77;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: .3s;
+    }
+    .btn:hover { background: #54395c; }
+
+    .map-img {
+      margin-top: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      max-width: 100%;
+    }
+
+    .gallery {
+      padding: 25px;
+      background: #f7f5f9;
+      text-align: center;
+    }
+    .gallery h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #6a4e77;
+      margin-bottom: 15px;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+    .gallery-container img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform .3s;
+    }
+    .gallery-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .contacts { 
+      background: #f7f5f9; 
+      padding: 25px; 
+      text-align: center; 
+    }
+    .contacts h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #6a4e77;
+      margin-bottom: 15px;
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .contact-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 1 1 200px;
+      text-align: center;
+    }
+    
+    .contact-box strong { 
+        display: block; 
+        margin-bottom: 4px; 
+        color: #444; 
+    }
+    
+    .contact-box span { 
+        display: block; 
+        margin-bottom: 8px; 
+    }
+    
+    .quickdial {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 8px 14px;
+        border-radius: 20px;
+        background: #6a4e77;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: .2s;
+    }
+    .quickdial:hover {
+        background: #54395c;
+        font-size: 20px;
+        color: #25D366;
+    }
+
+    .rsvp-popup-container {
+        display: none; 
+        position: fixed; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0,0,0,0.7); 
+        z-index: 20; 
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .rsvp-popup-content {
+        background: #fff; 
+        padding: 20px; 
+        border-radius: 10px; 
+        max-width: 95%; 
+        max-height: 95%; 
+        overflow: auto; 
+        position: relative;
+        text-align: left;
+        max-width: 400px;
+    }
+
+    .rsvp-popup-content h3 {
+      text-align: center;
+      color: #6a4e77;
+    }
+    
+    .rsvp-popup-content form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .rsvp-popup-content label {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .rsvp-popup-content input[type="text"],
+    .rsvp-popup-content input[type="number"] {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .rsvp-popup-content button[type="submit"] {
+      padding: 12px;
+      background: #6a4e77;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .rsvp-popup-content button[type="submit"]:hover {
+      background: #54395c;
+    }
+
+    .rsvp-popup-content .radio-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="glitter-bg" id="glitter-container"></div>
+  <div class="snow" id="snow-container"></div>
+  <div class="cover" id="cover">
+    <div class="cover-content">
+      <p style="font-family: 'Nunito', cursive; font-size: 20px; line-height: 1.0;">WALIMATULURUS</p><br><br>
+      <h1>Anis  &  Ghazie</h1>
+      <p>27 SEPTEMBER 2025</p>
+      <button onclick="openCard()">Buka Kad</button>
+    </div>
+  </div>
+
+  <div class="card" id="card">
+    <header>
+      <h2>❤ Anis  &  Ghazie ❤</h2><br>
+      <img src="https://emenes.github.io/kadkhawin-anisghazie/img/bismillah.png" alt="Bismillah" class="mx-auto w-48 mb-4" style="width: 200px; height: auto; margin: 10px auto;">
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">
+          Dengan Penuh Kesyukuran ke Hadrat Ilahi, Kami
+      </p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 20px; line-height: 1.2;"><b>Zulkarnain Bin Atan</b></p>
+      <p style="font-family: 'Imperial Script', cursive; font-size: 30px; line-height: 1.2; color: #6a4e77;"><b>&</b></p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 20px; line-height: 1.0;"><b>Norihan Binti Mansor</b></p><br>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">
+          Menjemput
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">Dato’/Datin, Tuan/Puan, Encik/Cik</p>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">ke Walimatulurus Puteri Kami</p><br>
+      <p style="font-family: 'Quicksand', cursive; font-size: 20px; line-height: 1.2;"><b>NUR HANIS ALIAA BINTI ZULKARNAIN</b></p>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">bersama pasangannya</p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 20px; line-height: 1.2;"><b>MUHAMAD GHAZIE HADIFF BIN KAMARAZAMAN</b></p><br>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.2;">pada</p>
+      <p style="font-family: 'Quicksand', cursive; font-size: 27px; line-height: 1.2; color: #6a4e77;"><b>27 SEPTEMBER 2025</b></p>
+      <div class="countdown" id="countdown"></div>
+    </header>
+
+    <div class="details">
+      <h3>Atur Cara</h3>
+      <p><strong>Jamuan:</strong> 11.00 AM – 4.00 PM</p>
+      <p><strong>Ketibaan Pengantin:</strong> 12.00 PM</p>
+
+      <h3>Lokasi</h3>
+      <p>Dewan Serbaguna Taman Aman, Senai</p>
+      <p style="font-family: 'Rouge Script', cursive; font-size: 25px; line-height: 1.0;">Semoga dengan kehadiran anda dapat memeriahkan lagi majlis kami</p><br>
+      <a class="btn" href="https://maps.app.goo.gl/AuFCqkPtsuduKucF9" target="_blank">Google Map</a>
+      <div class="map-img" style="height: 300px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.24354228495!2d103.66632487449266!3d1.5794829615024258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da6e236b280879%3A0xc68291c95166258a!2sDewan%20Serbaguna%20Taman%20Aman%2C%20Senai!5e0!3m2!1sen!2smy!4v1691234567890!5m2!1sen!2smy"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius: 12px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <h3>Galeri Pengantin</h3>
+      <div class="gallery-container" id="gallery">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/anis2.jpg" alt="Gallery 02">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/anis1.jpg" alt="Gallery 01">
+        <img src="https://emenes.github.io/kadkhawin-anisghazie/img/anis3.jpg" alt="Gallery 03">
+      </div>
+    </div>
+
+    <div class="contacts">
+        <h3>Contact</h3>
+        <div class="contact-container">
+            <div class="contact-box">
+                <strong>Ibu/Ayah</strong>
+                <span>+60 13-715 3954</span>
+                <a class="quickdial" href="https://wa.me/60137153954"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-box">
+                <strong>Along / Kakak</strong>
+                <span>+60 17-735 6977 (Naufal)<br>+60 19-360 6043 (Ilyia)</span>
+                <a class="quickdial" href="https://wa.me/60177356977"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-box">
+                <strong>Angah (Idham)</strong>
+                <span>+60 19-277 1264</span>
+                <a class="quickdial" href="https://wa.me/60192771264"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="contact-box">
+                <strong>Adik (Iman)</strong>
+                <span>+60 13-734 2475</span>
+                <a class="quickdial" href="https://wa.me/60137342475"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="rsvp" style="text-align: center; padding: 25px;">
+        <h3>RSVP</h3>
+        <a href="#" class="btn" onclick="openRSVP()">Hadir Ke Majlis</a>
+    </div>
+
+    <div id="rsvp-popup" class="rsvp-popup-container">
+        <div class="rsvp-popup-content">
+            <button onclick="closeRSVP()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #555; cursor: pointer;">×</button>
+            <h3>Borang RSVP</h3>
+            <form id="rsvpForm">
+                <label for="name">Nama Penuh:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label>Kehadiran:</label>
+                <div class="radio-group">
+                    <input type="radio" id="hadir" name="attendance" value="Hadir" required>
+                    <label for="hadir">Hadir</label>
+                    <input type="radio" id="tidak-hadir" name="attendance" value="Tidak Hadir" required>
+                    <label for="tidak-hadir">Tidak Hadir</label>
+                </div>
+
+                <label for="pax">Bilangan Tetamu (termasuk anda):</label>
+                <input type="number" id="pax" name="pax" min="1" max="10" value="1">
+
+                <button type="submit" class="btn">Hantar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+      <p style="font-family: 'Quicksand', cursive; font-size: 15px; line-height: 1.0;"><b>"Cinta yang suci, kini bersemi indah dalam ikatan pernikahan. Semoga Allah menghimpunkan kesejahteraan buat kalian berdua, memberkati kalian berdua, dan mudah-mudahan Allah mengurniakan keturunan yang soleh dan solehah, dijadikan sebagai pembuka rahmat, sumber ilmu dan hikmah serta penyejuk hati buat sesama manusia.<br>Amin, yaa Rabb"</b></p><br>
+      <b>"Ya Allah, satukanlah hati kedua mempelai ini dalam kebaikan."</b><br>
+      <b>Terima kasih atas doa & kehadiran anda ♥</b>
+    </footer>
+    <footer style="padding: 10px; font-size: 12px; color: #aaa; background-color: #f7f5f9; text-align: center;">
+      Kad Khawin Digital by Naufal Shafiq Zulkarnain | 2025
+    </footer>
+  </div>
+
+  <audio id="bgMusic" src="https://emenes.github.io/kadkhawin-anisghazie/aud/kisahcintakita.mp3" loop></audio>
+
+  <script>
+    function openCard() {
+      document.getElementById('cover').style.transform = 'translateY(-100%)';
+      setTimeout(() => {
+        document.getElementById('cover').style.display = 'none';
+        document.getElementById('card').classList.add('show');
+        document.getElementById('glitter-container').classList.add('show');
+        window.scrollTo(0, 0);
+        document.getElementById('bgMusic').play();
+      }, 1000);
+    }
+
+    // Function untuk generate glitter
+    function createGlitter() {
+      const glitterContainer = document.getElementById('glitter-container');
+      const numGlitter = 200;
+      for (let i = 0; i < numGlitter; i++) {
+        const glitter = document.createElement('span');
+        const size = Math.random() * 3 + 1;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const delay = Math.random() * 3;
+        const duration = Math.random() * 3 + 2;
+
+        glitter.style.width = `${size}px`;
+        glitter.style.height = `${size}px`;
+        glitter.style.left = `${left}%`;
+        glitter.style.top = `${top}%`;
+        glitter.style.animationDelay = `${delay}s`;
+        glitter.style.animationDuration = `${duration}s`;
+        glitterContainer.appendChild(glitter);
+      }
+    }
+
+    // Function untuk generate snow
+    function createSnowfall() {
+      const snowContainer = document.getElementById('snow-container');
+      const numSnowflakes = 50; 
+
+      for (let i = 0; i < numSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+
+        const size = Math.random() * 5 + 3;
+        const left = Math.random() * 100;
+        const duration = Math.random() * 10 + 5;
+        const delay = Math.random() * 5;
+
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${left}%`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.animationDelay = `${delay}s`;
+
+        snowContainer.appendChild(snowflake);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      createGlitter();
+      createSnowfall();
+    });
+
+    // Countdown
+    const countdownEl = document.getElementById('countdown');
+    const targetDate = new Date('September 27, 2025 00:00:00 GMT+0800').getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff <= 0) {
+        countdownEl.innerHTML = "Hari bahagia telah tiba! Selamat Pengantin Baru!";
+        return;
+      }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `COUNTING DAYS : ${d} Hari ${h} Jam ${m} Minit ${s} Saat`;
+    }, 1000);
+
+    function openRSVP() {
+        document.getElementById('rsvp-popup').style.display = 'flex';
+    }
+
+    function closeRSVP() {
+        document.getElementById('rsvp-popup').style.display = 'none';
+    }
+
+    // KOD BARU UNTUK BORANG RSVP
+    const rsvpForm = document.getElementById('rsvpForm');
+    rsvpForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Elak borang dari submit secara normal
+
+        const name = document.getElementById('name').value;
+        const attendance = document.querySelector('input[name="attendance"]:checked').value;
+        const pax = document.getElementById('pax').value;
+        
+        // GANTIKAN NOMBOR DI BAWAH DENGAN NOMBOR WHATSAPP ANDA (+60xxxxxx)
+        const phoneNumber = '60177356977'; 
+        
+        const message = `*RSVP Anis & Ghazie*\n\nNama: ${name}\nKehadiran: ${attendance}\nBilangan Tetamu: ${pax}\n\nTerima kasih atas RSVP anda!`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        
+        window.open(whatsappUrl, '_blank');
+        
+        // Tutup pop-up selepas hantar
+        closeRSVP();
+    });
+  </script>
+</body>
+</html>
